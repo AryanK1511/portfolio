@@ -1,11 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
-  let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
+  let headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
   let rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
@@ -27,7 +26,7 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
 function CustomLink(props: any) {
   let href = props.href;
 
-  if (href.startsWith("/")) {
+  if (href.startsWith('/')) {
     return (
       <Link href={href} {...props}>
         {props.children}
@@ -35,7 +34,7 @@ function CustomLink(props: any) {
     );
   }
 
-  if (href.startsWith("#")) {
+  if (href.startsWith('#')) {
     return <a {...props} />;
   }
 
@@ -52,10 +51,10 @@ function slugify(str: string) {
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
+    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
 function createHeading(level: number) {
@@ -65,13 +64,13 @@ function createHeading(level: number) {
       `h${level}`,
       { id: slug },
       [
-        React.createElement("a", {
+        React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: "anchor",
+          className: 'anchor',
         }),
       ],
-      children,
+      children
     );
   };
   Heading.displayName = `Heading${level}`;
