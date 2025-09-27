@@ -4,7 +4,7 @@ import { Inter as FontSans } from 'next/font/google';
 import Navbar from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { DATA } from '@/data/resume';
+import { PROFILE } from '@/data/resume';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
@@ -15,17 +15,17 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
+  metadataBase: new URL(PROFILE.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: PROFILE.name,
+    template: `%s | ${PROFILE.name}`,
   },
-  description: DATA.description,
+  description: PROFILE.description,
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
+    title: `${PROFILE.name}`,
+    description: PROFILE.description,
+    url: PROFILE.url,
+    siteName: `${PROFILE.name}`,
     locale: 'en_US',
     type: 'website',
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: `${PROFILE.name}`,
     card: 'summary_large_image',
   },
   verification: {
@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6',
+          'min-h-screen bg-background font-sans antialiased max-w-4xl mx-auto py-12 sm:py-24 px-6',
           fontSans.variable
         )}
       >
