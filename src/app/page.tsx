@@ -3,7 +3,6 @@ import Markdown from 'react-markdown';
 
 import Link from 'next/link';
 
-import { HackathonCard } from '@/components/hackathon-card';
 import BlurFade from '@/components/magicui/blur-fade';
 import BlurFadeText from '@/components/magicui/blur-fade-text';
 import { ProjectCard } from '@/components/project-card';
@@ -24,7 +23,7 @@ const Home: FC = () => {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`Hi, I'm ${PROFILE.name.split(' ')[0]} 👋`}
+                text={`Hi, I'm ${PROFILE.name.split(' ')[0]}🧋`}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
@@ -52,7 +51,7 @@ const Home: FC = () => {
         </BlurFade>
       </section>
       <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
+        <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
@@ -62,12 +61,11 @@ const Home: FC = () => {
                 key={work.company}
                 logoUrl={work.logoUrl}
                 altText={work.company}
-                title={work.company}
-                subtitle={work.title}
+                title={work.title}
+                subtitle={work.company}
                 href={work.href}
-                badges={work.badges}
                 period={`${work.start} - ${work.end ?? 'Present'}`}
-                description={work.description}
+                bulletPoints={work.bulletPoints}
               />
             </BlurFade>
           ))}
@@ -85,8 +83,8 @@ const Home: FC = () => {
                 href={education.href}
                 logoUrl={education.logoUrl}
                 altText={education.school}
-                title={education.school}
-                subtitle={education.degree}
+                title={education.degree}
+                subtitle={education.school}
                 period={`${education.start} - ${education.end}`}
               />
             </BlurFade>
@@ -144,50 +142,9 @@ const Home: FC = () => {
           </div>
         </div>
       </section>
-      <section id="hackathons">
-        <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 13}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  I like building things
-                </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I attended {PROFILE.hackathons.length}+ hackathons.
-                  People from around the country would come together and build incredible things in
-                  2-3 days. It was eye-opening to see the endless possibilities brought to life by a
-                  group of motivated and passionate individuals.
-                </p>
-              </div>
-            </div>
-          </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {PROFILE.hackathons.map((project, id) => (
-                <BlurFade
-                  key={project.title + project.dates}
-                  delay={BLUR_FADE_DELAY * 15 + id * 0.05}
-                >
-                  <HackathonCard
-                    title={project.title}
-                    description={project.description}
-                    location={project.location}
-                    dates={project.dates}
-                    image={project.image}
-                    links={project.links}
-                  />
-                </BlurFade>
-              ))}
-            </ul>
-          </BlurFade>
-        </div>
-      </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="space-y-3">
               <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                 Contact
