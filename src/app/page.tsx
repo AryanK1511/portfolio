@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 import BlurFade from '@/components/magicui/blur-fade';
 import BlurFadeText from '@/components/magicui/blur-fade-text';
-import { ProjectCard } from '@/components/project-card';
 import { ResumeCard } from '@/components/resume-card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -105,7 +104,7 @@ const Home: FC = () => {
           </div>
         </div>
       </section>
-      <section id="projects">
+      {/* <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -141,7 +140,7 @@ const Home: FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -151,11 +150,17 @@ const Home: FC = () => {
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{' '}
+                Wanna chat? Just shoot me a dm on {''}
                 <Link href={PROFILE.contact.social.X.url} className="text-blue-500 hover:underline">
-                  with a direct question on twitter
+                  twitter
                 </Link>{' '}
-                and I&apos;ll respond whenever I can. I will ignore all soliciting.
+                or send me an{' '}
+                <Link
+                  href={PROFILE.contact.social.email.url}
+                  className="text-blue-500 hover:underline"
+                >
+                  email
+                </Link>
               </p>
             </div>
           </BlurFade>
