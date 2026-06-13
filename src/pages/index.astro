@@ -1,17 +1,65 @@
 ---
+import BlogCard from '@/components/BlogCard.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import SocialIcons from '@/components/SocialIcons.astro'
+import { buttonVariants } from '@/components/ui/button'
+import { SITE, SOCIAL_LINKS } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getRecentPosts } from '@/lib/data-utils'
 
+const blog = await getRecentPosts(SITE.featuredPostCount)
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Home" />
+  <section>
+    <div class="rounded-lg border">
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h1 class="text-3xl leading-none font-medium">{SITE.author}</h1>
+        <p class="text-muted-foreground text-sm">
+          Software engineer &bull; <span class="font-medium">writer</span>
+        </p>
+      </div>
+      <div class="flex flex-col gap-y-4 p-6 pt-0">
+        <p class="text-muted-foreground text-sm">
+          Hi, I'm {SITE.author}. I build software and occasionally write about
+          it. This is my corner of the internet — a portfolio and a place to
+          collect notes, experiments, and longer-form thoughts.
+        </p>
+        <p class="text-muted-foreground text-sm">
+          This is placeholder copy. Edit it in <Link
+            href="https://github.com/aryankhurana"
+            class="text-foreground"
+            external
+            underline>src/pages/index.astro</Link
+          > to introduce yourself, link your work, and say what you're up to.
+        </p>
+        <SocialIcons links={SOCIAL_LINKS} />
+      </div>
+    </div>
+  </section>
+  <section class="flex flex-col gap-y-4">
+    <h2 class="text-2xl font-medium">Latest posts</h2>
+    <ul class="flex flex-col gap-y-4">
+      {
+        blog.map((post) => (
+          <li>
+            <BlogCard entry={post} />
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex justify-center">
+      <Link
+        href="/blog"
+        class={buttonVariants({ variant: 'ghost' }) + ' group'}
+      >
+        See all posts <span
+          class="ml-1.5 transition-transform group-hover:translate-x-1"
+          >&rarr;</span
+        >
+      </Link>
+    </div>
+  </section>
+</Layout>
