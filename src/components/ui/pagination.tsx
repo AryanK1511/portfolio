@@ -183,13 +183,3 @@ interface PaginationProps {
 }
 
 export default PaginationComponent
-
-export {
-  Pagination,
-  PaginationContent,
-  PaginationLink,
-  PaginationItem,
-  PaginationPrevious,
-  PaginationNext,
-  PaginationEllipsis,
-}

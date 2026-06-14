@@ -46,7 +46,7 @@ export function groupPostsByYear(
   )
 }
 
-export async function getPostById(
+async function getPostById(
   postId: string,
 ): Promise<CollectionEntry<'blog'> | null> {
   const posts = await getAllPosts()

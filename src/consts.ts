@@ -11,13 +11,6 @@ export const SITE: Site = {
   postsPerPage: 5,
 }
 
-export const NAV_LINKS: SocialLink[] = [
-  {
-    href: '/blog',
-    label: 'blog',
-  },
-]
-
 export const PROFILE_LINKS = {
   rbc: 'https://www.rbc.com/',
   rezzy: 'https://www.rezzy.dev/',
@@ -52,11 +45,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 export const ICON_MAP: IconMap = {
-  Website: 'lucide:globe',
   GitHub: 'lucide:github',
   LinkedIn: 'lucide:linkedin',
   X: 'simple-icons:x',
   Instagram: 'lucide:instagram',
   TikTok: 'simple-icons:tiktok',
-  RSS: 'lucide:rss',
 }

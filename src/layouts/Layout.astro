@@ -5,7 +5,6 @@ import '@/styles/markdown.css'
 
 import Footer from '@/components/Footer.astro'
 import Head from '@/components/Head.astro'
-import Header from '@/components/Header.astro'
 import { SITE } from '@/consts'
 import { cn } from '@/lib/utils'
 
@@ -24,7 +23,6 @@ const { class: className } = Astro.props
   <body>
     <div class="flex h-fit min-h-screen flex-col gap-y-6 font-mono">
       <div class="sticky top-0 z-50">
-        <Header />
         <slot name="table-of-contents" />
       </div>
       <main class="grow">

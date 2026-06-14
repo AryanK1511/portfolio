@@ -5,7 +5,7 @@ import {
   type SatteriExpressiveCodeOptions,
 } from 'satteri-expressive-code'
 
-export const ecOptions: SatteriExpressiveCodeOptions = {
+const ecOptions: SatteriExpressiveCodeOptions = {
   themes: ['github-dark'],
   useDarkModeMediaQuery: false,
   themeCssSelector: () => '[data-theme="dark"]',
