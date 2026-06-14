@@ -43,10 +43,9 @@ function highlightScope(
   code: string,
   scope: string,
 ): ElementContent[] {
-  const [light, dark] = ec.styleVariants
-  const c0 = resolveScopeColor(light.theme, scope)
-  const c1 = resolveScopeColor(dark.theme, scope)
-  return [h("span", { style: `--0:${c0};--1:${c1}` }, code)]
+  const [variant] = ec.styleVariants
+  const color = resolveScopeColor(variant.theme, scope)
+  return [h("span", { style: `--0:${color}` }, code)]
 }
 
 function resolveScopeColor(theme: ExpressiveCodeTheme, scope: string): string {

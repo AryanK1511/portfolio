@@ -39,14 +39,6 @@
   text-decoration: var(--0td, inherit);
 }
 
-[data-theme='dark'] .prose code[data-ec] :where(span[style^='--']:not([class])) {
-  color: var(--1, inherit);
-  background-color: var(--1bg, transparent);
-  font-style: var(--1fs, inherit);
-  font-weight: var(--1fw, inherit);
-  text-decoration: var(--1td, inherit);
-}
-
 /* Temml MathML output (src/lib/math.ts) */
 .prose math {
   font-family: 'STIX Two Math', math;
@@ -75,17 +67,13 @@
 .prose [data-callout] {
   --accent: var(--muted-foreground);
   --callout-border: var(--accent);
-  --callout-text: oklch(from var(--accent) 0.48 calc(c * 1.05) h);
+  --callout-text: oklch(from var(--accent) 0.83 calc(c * 0.5) h);
 
   position: relative;
   margin-block: 1.5rem;
   padding-block: 0.75rem;
   padding-inline: 1rem 0;
   border-inline-start: 4px solid var(--callout-border);
-}
-
-[data-theme='dark'] .prose [data-callout] {
-  --callout-text: oklch(from var(--accent) 0.83 calc(c * 0.5) h);
 }
 
 .prose [data-callout] > summary {

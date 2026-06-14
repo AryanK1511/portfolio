@@ -6,9 +6,9 @@ import {
 } from 'satteri-expressive-code'
 
 export const ecOptions: SatteriExpressiveCodeOptions = {
-  themes: ['github-light', 'github-dark'],
+  themes: ['github-dark'],
   useDarkModeMediaQuery: false,
-  themeCssSelector: (theme) => `[data-theme="${theme.name.split('-')[1]}"]`,
+  themeCssSelector: () => '[data-theme="dark"]',
   plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
   defaultProps: {
     wrap: true,

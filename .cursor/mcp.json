@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "rezzy-context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-b302445a-0c2f-49b7-8680-21899c5489e0"
+      }
+    }
+  }
+}

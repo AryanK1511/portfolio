@@ -4,7 +4,7 @@ import Link from '@/components/Link.astro'
 import PageHead from '@/components/PageHead.astro'
 import SocialIcons from '@/components/SocialIcons.astro'
 import { buttonVariants } from '@/components/ui/button'
-import { SITE, SOCIAL_LINKS } from '@/consts'
+import { SITE, SOCIAL_LINKS, PROFILE_LINKS } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
 
@@ -18,22 +18,68 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
       <div class="flex flex-col space-y-1.5 p-6">
         <h1 class="text-3xl leading-none font-medium">{SITE.author}</h1>
         <p class="text-muted-foreground text-sm">
-          Software engineer &bull; <span class="font-medium">writer</span>
+          Senior AI SWE @{' '}
+          <Link
+            href={PROFILE_LINKS.rbc}
+            class="text-foreground"
+            external
+            underline>RBC</Link
+          >,{' '}
+          <span class="font-medium">
+            Building{' '}
+            <Link
+              href={PROFILE_LINKS.rezzy}
+              class="text-foreground"
+              external
+              underline>Rezzy</Link
+            >
+          </span>
         </p>
       </div>
       <div class="flex flex-col gap-y-4 p-6 pt-0">
         <p class="text-muted-foreground text-sm">
-          Hi, I'm {SITE.author}. I build software and occasionally write about
-          it. This is my corner of the internet — a portfolio and a place to
-          collect notes, experiments, and longer-form thoughts.
-        </p>
-        <p class="text-muted-foreground text-sm">
-          This is placeholder copy. Edit it in <Link
-            href="https://github.com/aryankhurana"
+          I'm a <span data-age data-birth-date="2003-11-15">22</span>-year-old
+          software engineer based in Toronto, Canada. I love working to the
+          sound of rain with a nice cup of coffee on the side.
+          By day, I'm a Senior AI SWE at{' '}
+          <Link
+            href={PROFILE_LINKS.rbc}
             class="text-foreground"
             external
-            underline>src/pages/index.astro</Link
-          > to introduce yourself, link your work, and say what you're up to.
+            underline>RBC</Link
+          >; by night, I'm learning, building side projects and startups, and
+          watching anime.
+        </p>
+        <p class="text-muted-foreground text-sm">
+          I'm very much your Gen Z tech bro. I love the engineering and startup
+          space. I{' '}
+          <Link href="/blog" class="text-foreground" underline>write blogs</Link
+          >, and I occasionally post content on{' '}
+          <Link
+            href={PROFILE_LINKS.instagram}
+            class="text-foreground"
+            external
+            underline>Instagram</Link
+          >
+          and{' '}
+          <Link
+            href={PROFILE_LINKS.tiktok}
+            class="text-foreground"
+            external
+            underline>TikTok</Link
+          >
+          as well. I enjoy being creative and teaching and mentoring people.
+        </p>
+        <p class="text-muted-foreground text-sm">
+          Outside of tech, I'm the kind of person who'd rather take a long walk
+          or go for a drive with close friends than do anything else. I listen
+          to all genres of music (The 1975 is my favourite as of now) and switched from Spotify to YouTube Music
+          because YouTube premium is included, and saved videos can double as audio.
+          I've also been slowly learning to play the piano.
+        </p>
+        <p class="text-muted-foreground text-sm">
+          My main ambition is growth, financial stability, deeper relationships,
+          and the confidence to build things I'm proud of.
         </p>
         <SocialIcons links={SOCIAL_LINKS} />
       </div>
@@ -63,3 +109,37 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
     </div>
   </section>
 </Layout>
+
+<script>
+  const calculateAge = (birthDateString: string) => {
+    const today = new Date()
+    const birthDate = new Date(`${birthDateString}T00:00:00`)
+    let age = today.getFullYear() - birthDate.getFullYear()
+    const birthdayThisYear = new Date(
+      today.getFullYear(),
+      birthDate.getMonth(),
+      birthDate.getDate(),
+    )
+
+    if (today < birthdayThisYear) {
+      age -= 1
+    }
+
+    return age
+  }
+
+  const updateAge = () => {
+    document.querySelectorAll<HTMLElement>('[data-age]').forEach((element) => {
+      const birthDate = element.dataset.birthDate
+
+      if (!birthDate) {
+        return
+      }
+
+      element.textContent = String(calculateAge(birthDate))
+    })
+  }
+
+  updateAge()
+  document.addEventListener('astro:page-load', updateAge)
+</script>

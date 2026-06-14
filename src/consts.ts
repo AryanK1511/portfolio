@@ -16,28 +16,38 @@ export const NAV_LINKS: SocialLink[] = [
     href: '/blog',
     label: 'blog',
   },
-  {
-    href: '/tags',
-    label: 'tags',
-  },
 ]
+
+export const PROFILE_LINKS = {
+  rbc: 'https://www.rbc.com/',
+  rezzy: 'https://www.rezzy.dev/',
+  github: 'https://github.com/AryanK1511',
+  linkedin: 'https://www.linkedin.com/in/aryank1511/',
+  x: 'https://x.com/AryanK1511',
+  instagram: 'http://instagram.com/aryansyaptown',
+  tiktok: 'https://www.tiktok.com/@aryansyaptown',
+} as const
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: 'https://github.com/aryankhurana',
+    href: PROFILE_LINKS.github,
     label: 'GitHub',
   },
   {
-    href: 'https://twitter.com/aryankhurana',
-    label: 'Twitter',
+    href: PROFILE_LINKS.linkedin,
+    label: 'LinkedIn',
   },
   {
-    href: 'mailto:hello@aryankhurana.dev',
-    label: 'Email',
+    href: PROFILE_LINKS.x,
+    label: 'X',
   },
   {
-    href: '/rss.xml',
-    label: 'RSS',
+    href: PROFILE_LINKS.instagram,
+    label: 'Instagram',
+  },
+  {
+    href: PROFILE_LINKS.tiktok,
+    label: 'TikTok',
   },
 ]
 
@@ -45,7 +55,8 @@ export const ICON_MAP: IconMap = {
   Website: 'lucide:globe',
   GitHub: 'lucide:github',
   LinkedIn: 'lucide:linkedin',
-  Twitter: 'lucide:twitter',
-  Email: 'lucide:mail',
+  X: 'simple-icons:x',
+  Instagram: 'lucide:instagram',
+  TikTok: 'simple-icons:tiktok',
   RSS: 'lucide:rss',
 }

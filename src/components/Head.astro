@@ -22,16 +22,7 @@ import Favicons from './Favicons.astro'
     content="telephone=no,date=no,address=no,email=no,url=no"
   />
 
-  <meta
-    name="theme-color"
-    content="#121212"
-    media="(prefers-color-scheme: dark)"
-  />
-  <meta
-    name="theme-color"
-    content="#121212"
-    media="(prefers-color-scheme: light)"
-  />
+  <meta name="theme-color" content="#121212" />
 
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -41,6 +32,9 @@ import Favicons from './Favicons.astro'
     title={SITE.title}
     href={new URL('rss.xml', Astro.site)}
   />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <Favicons />
   <ClientRouter />
