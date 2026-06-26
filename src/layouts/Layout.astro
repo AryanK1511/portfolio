@@ -3,6 +3,7 @@ import '@/styles/global.css'
 import '@/styles/typography.css'
 import '@/styles/markdown.css'
 
+import Analytics from '@vercel/analytics/astro'
 import Footer from '@/components/Footer.astro'
 import Head from '@/components/Head.astro'
 import { SITE } from '@/consts'
@@ -32,5 +33,6 @@ const { class: className } = Astro.props
       </main>
       <Footer />
     </div>
+    <Analytics />
   </body>
 </html>
